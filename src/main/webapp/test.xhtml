@@ -1,21 +1,246 @@
 <!DOCTYPE html>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html"
       xmlns:p="primefaces">
 
-    <h:head>
-        <title>PrimeFaces Test</title>
-        <h:outputScript name="test.js" />
-        <h:outputStylesheet name="test.css" />
-    </h:head>
-    <h:body>
+<style>
 
-        <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: aquamarine;
+        transition: 0.3s;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+</style>
+
+
+<h:head>
+    <title>PrimeFaces Test</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
+
+
+    <h2>#{testView.message}</h2>
+    <h:outputText value="Enter text: "/>
+    <p:inputText id="textName" placeholder="Enter valid name"/>
+
+
+    <h2>Text area</h2>
+
+    <p:inputTextarea autoResize="true"/>
+    <br/>
+    <br/>
+    <p:button value="Submit"/>
+
+
+    <div class="card">
+        <h:form>
+            <h5 class="mt-0">Basic</h5>
+            <h:panelGrid columns="3" cellpadding="7">
+                <p:outputLabel for="name" value="Name"/>
+                <p:inputText id="name" value="#{basicView.text1}"/>
+                <h:outputText id="display" value="#{basicView.text1}"/>
+            </h:panelGrid>
+            <p:commandButton value="Submit" update="display" styleClass="mt-3"/>
 
         </h:form>
 
-    </h:body>
+    </div>
+
+
+    <div class="card">
+
+
+        <h:form>
+            <h5 class="mt-0">Action listener</h5>
+            <h:panelGrid columns="2" cellpadding="7">
+                <h:outputText value="Counter: "/>
+                <h:outputText id="output" value="#{basicView.number}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="2" cellpadding="7">
+                <p:commandButton value="Increment" action="#{basicView.increment}" update="output" styleClass="mt-3"/>
+                <p:commandButton value="Start from zero" action="#{basicView.startFromZero}" update="output"
+                                 styleClass="mt-3"/>
+            </h:panelGrid>
+        </h:form>
+
+
+    </div>
+
+
+    <div class="card">
+
+        <h:form>
+            <h5 class="mt-5"> Advanced</h5>
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+
+            <h:panelGrid columns="2" cellpadding="7" styleClass="mb-3">
+
+                <p:outputLabel for="country" value="Country"/>
+                <p:selectOneMenu id="country" value="#{basicView.country}" style="width:12rem">
+                    <p:ajax listener="#{basicView.onCountChange()}" update="city"/>
+                    <f:selectItem itemLabel="Select countrry" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{basicView.countries}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel for="city" value="City"/>
+                <p:selectOneMenu id="city" value="#{basicView.city}" style="width:12rem">
+                    <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{basicView.cities}"/>
+                </p:selectOneMenu>
+
+                <p:commandButton value="Submit" update="msgs" action="#{basicView.display()}" icon="pi pi-check"/>
+            </h:panelGrid>
+
+        </h:form>
+
+
+    </div>
+
+    <div class="card">
+
+        <h:form>
+            <h:panelGrid id="grid" cellpadding="7" columns="2" styleClass="mb-3">
+                <p:outputLabel for="firstname" value="Firstname:"/>
+                <p:inputText id="firstname" value="#{processView.firstName}"/>
+
+
+                <p:outputLabel for="surname" value="Surname:"/>
+                <p:inputText id="surname" value="#{processView.lastName}" required="true"
+                             requiredMessage="Surname is required"/>
+            </h:panelGrid>
+
+            <p:commandButton value="All" id="btnAll" process="@all" update="grid msgs" action="#{processView.save}"
+                             styleClass="mr-2"/>
+
+
+            <p:messages id="msgs"/>
+        </h:form>
+
+
+    </div>
+
+
+    <div class="card">
+
+        <p:linkButton value="Go to second page" outcome="test2.xhtml"/>
+
+    </div>
+    <div class="card">
+        <h:form>
+            <p:panel id="panel" header="panel" styleClass="mb-3">
+                <h5>Drop down</h5>
+
+
+                <h:outputLabel for="txt" value="Drop down text "/>
+                <h:selectOneMenu id="txt" value="#{processView.dropDownValue}" required="true" label="Text 3">
+                    <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+                    <f:selectItem itemLabel="Option 1" itemValue="1"/>
+                    <f:selectItem itemLabel="Option 2" itemValue="2"/>
+                    <f:selectItem itemLabel="Option 3" itemValue="3"/>
+                </h:selectOneMenu>
+
+
+                <h:outputText value="#{processView.dropDownValue}" id="display"/>
+
+                <p:commandButton update="@(form)" value="All Forms" styleClass="mr-2"/>
+
+            </p:panel>
+        </h:form>
+
+    </div>
+
+    <div class="card">
+
+
+        <h:form>
+            <h:panelGrid columns="3" styleClass="mb-3" cellpadding="7">
+                <h:outputLabel for="firstname" value="First Name:"/>
+                <p:inputText id="firstname" value="#{processView.firstName}" required="true" label="Firstname">
+                    <f:validateLength minimum="2"/>
+                    <p:ajax update="msgFirstName" event="keyup"/>
+                </p:inputText>
+                <p:message for="firstname" id="msgFirstName" display="icon"/>
+
+            </h:panelGrid>
+
+            <h:commandButton value="save" update="firstname" action="#{processView.save()}" icon="pi pi-chack"/>
+        </h:form>
+
+    </div>
+
+    <div class="card">
+        <h:form>
+            <p:panel header="Form">
+                <h:panelGrid cellpadding="7" columns="4" styleClass="mb-3">
+
+                    <h:outputLabel for="txt1" value="txt 1"/>
+                    <p:inputText id="txt1" value="#{selectorView.txt1}" required="true" label="Text 1">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                    <p:message for="txt1"/>
+
+                    <h:outputText value="#{selectorView.txt1}"/>
+
+
+                    <h:outputLabel for="txt3" value="Text 3"/>
+                    <h:selectOneMenu id="txt3" value="#{selectorView.txt2}" required="true" label="Text 3">
+                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+                        <f:selectItem itemLabel="Option 1" itemValue="1"/>
+                        <f:selectItem itemLabel="Option 2" itemValue="2"/>
+                        <f:selectItem itemLabel="Option 3" itemValue="3"/>
+                    </h:selectOneMenu>
+                    <p:message for="txt3"/>
+                    <h:outputText value="#{selectorView.txt2}"/>
+
+
+                </h:panelGrid>
+                <p:commandButton update="@(form)" value="All forms" styleClass="mr-2"/>
+
+                <p:growl id="messages"/>
+            </p:panel>
+
+
+
+
+        </h:form>
+
+    </div>
+
+    <div class="card">
+        <h:form>
+            <p:messages id="m"/>
+
+            <h:panelGrid columns="3" cellpadding="7" styleClass="mb-3">
+                <p:outputLabel for="firstname" value="Firstname:"/>
+                <p:inputText id="firstname" value="#{validation.firstName}" required="true" label="Firstname">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
+                <p:message for="firstname" display="icon"/>
+
+                <p:outputLabel for="lastname" value="Lastname:"/>
+                <p:inputText id="lastname" value="#{validation.lastName}" label="Lastname" required="true">
+                    <f:validateLength minimum="2"/>
+                    <p:ajax update="msgLastname" event="keyup"/>
+                </p:inputText>
+                <p:message for="lastname" id="msgLastname" display="icon"/>
+
+            </h:panelGrid>
+
+            <p:commandButton value="Save" update="@form" action="#{validation.save}" icon="pi pi-check" />
+        </h:form>
+    </div>
+
+
+</h:body>
 </html>
