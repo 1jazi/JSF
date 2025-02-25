@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69fa577f-03c6-4d1a-ad73-3847a87685ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/validation.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/test/TestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/test/TestView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/test.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/test.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.tern-project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/test/formAutoComplete/AutoCompleteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/test/formAutoComplete/AutoCompleteView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/test/formAutoComplete/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/test/formAutoComplete/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/test/formAutoComplete/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/test/formAutoComplete/CountryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +41,9 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2tIGUS8eU8XuvtPwi8zrX3B59I3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,7 +52,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jazi.Al-Maghariz/IdeaProjects/testProject/primefaces-test",
     "list.type.of.created.stylesheet": "CSS",
@@ -88,7 +92,7 @@
       <workItem from="1740314943935" duration="478000" />
       <workItem from="1740388221404" duration="12710000" />
       <workItem from="1740468171831" duration="2163000" />
-      <workItem from="1740470410034" duration="11940000" />
+      <workItem from="1740470410034" duration="16720000" />
     </task>
     <servers />
   </component>

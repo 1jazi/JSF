@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 
 import jakarta.inject.Named;
+import lombok.Data;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -12,9 +13,8 @@ import java.util.stream.Stream;
 
 @Named
 @ApplicationScoped
-
+@Data
 public class CountryService {
-
 
     private List<Country> countries;
     private Map<Integer, Country> countryAsMap;
@@ -93,6 +93,33 @@ public class CountryService {
         locales.add(CountryService.toCountry(new Locale("vi", "VN")));
         locales.add(CountryService.toCountry(Locale.SIMPLIFIED_CHINESE));
         locales.add(CountryService.toCountry(Locale.TRADITIONAL_CHINESE));
+    }
+
+
+    public List<Country> getCountries() {
+        return new ArrayList<>(countries);
+    }
+
+    public Map<Integer, Country> getCountriesAsMap() {
+        if (countryAsMap == null) {
+            countryAsMap = getCountries()
+                    .stream()
+                    .collect(Collectors.toMap(Country::getId, country -> country));
+        }
+        return countryAsMap;
+    }
+
+    public List<Country> getLocales() {
+        return new ArrayList<>(locales);
+    }
+
+    public Map<Integer, Country> getLocalesAsMap() {
+        if (localesAsMap == null) {
+            localesAsMap = getCountries()
+                    .stream()
+                    .collect(Collectors.toMap(Country::getId, country -> country));
+        }
+        return localesAsMap;
     }
 
 

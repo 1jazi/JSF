@@ -32,13 +32,17 @@ public class Country implements Serializable, Comparable<Country> {
         this(id, locale.getDisplayCountry(), locale.getCountry().toLowerCase(), locale);
         this.rtl = rtl;
     }
-
+    public Country(int id, String name, String code) {
+        this(id, name, code, null);
+    }
     public Country(int id, String name, String code, Locale locale) {
         this.id = id;
         this.name = name;
         this.code = code;
         this.locale = locale;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

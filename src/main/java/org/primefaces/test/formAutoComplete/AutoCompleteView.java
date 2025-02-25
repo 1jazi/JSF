@@ -1,6 +1,7 @@
 package org.primefaces.test.formAutoComplete;
 
 
+import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -36,11 +37,22 @@ public class AutoCompleteView implements Serializable {
     private List<Country> countries;
 
 
-    private LazyDataModel<Country> lazyCountry;
+    private LazyDataModel<Country> lazyModel;
 
 
     @Inject
     private CountryService countryService;
+
+
+    @Inject
+
+    private CustomerService service;
+
+//    @PostConstruct
+//    public void init() {
+//        lazyModel = new LazyC
+//    }
+
 
 
 }
