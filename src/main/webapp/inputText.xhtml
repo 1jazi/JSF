@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<style>
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: #aac8bd;
+        transition: 0.3s;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+</style>
+
+
+<h:head>
+    <title>PrimeFaces Test</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
+
+
+    <div class="card">
+
+        <h:form>
+
+            <p:panel header="InputTexts">
+
+
+                <span class="ui-float-label mt-5">
+                    <p:inputText value="#{processView.firstName}" id="float-input"/>
+                    <p:outputLabel for="@previous" value="Username"/>
+                </span>
+
+                <span class="ui-input-icon-left">
+                    <i class="pi pi-search"/>
+                    <p:inputText placeholder="Search"/>
+                </span>
+
+                <span class="ui-input-icon-right">
+                    <i class="pi pi-spin pi-spinner"/>
+                    <p:inputText/>
+                </span>
+
+
+                <h5>Help text</h5>
+
+                <div class="field">
+
+                    <p:outputLabel for="username1" styleClass="block">
+                        Username
+                    </p:outputLabel>
+                    <p:inputText id="username1" styleClass="block"/>
+                    <small class="block">Enter ur username to reset the password</small>
+                </div>
+                <h5>Invalid</h5>
+                <div class="field">
+                    <p:outputLabel for="username2" styleClass="block">Username</p:outputLabel>
+                    <p:inputText id="username2" styleClass="block ui-state-error"/>
+                    <small class="block ui-state-error">Username is not available.</small>
+                </div>
+
+                <h5>Disabled</h5>
+                <p:inputText disabled="true"/>
+            </p:panel>
+
+
+        </h:form>
+
+    </div>
+
+</h:body>
+</html>

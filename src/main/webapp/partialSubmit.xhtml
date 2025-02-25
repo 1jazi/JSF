@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<style>
+
+    .ui-log {
+        left: auto;
+        right: 20px;
+        top: 300px;
+    }
+
+    .other-content input {
+        margin-right: .5rem;
+        margin-bottom: .5rem;
+    }
+
+</style>
+
+
+<h:head>
+    <title>PrimeFaces Test</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
+
+
+   <div class="card">
+
+       <h:form id="form">
+
+<p:log />
+           <h:panelGrid columns="3" cellpadding="7">
+
+               <h:outputLabel for="name" value="name"/>
+               <p:inputText id="name"/>
+               <p:commandButton value="full submit" partialSubmit="false" process="name"/>
+               <p:commandButton value="partial submit" partialSubmit="true" process="name" styleClass="ui-button-success"/>
+
+           </h:panelGrid>
+
+       </h:form>
+
+
+   </div>
+
+
+</h:body>
+</html>

@@ -217,27 +217,30 @@
 
     </div>
 
+
+
+
+
     <div class="card">
         <h:form>
-            <p:messages id="m"/>
-
             <h:panelGrid columns="3" cellpadding="7" styleClass="mb-3">
-                <p:outputLabel for="firstname" value="Firstname:"/>
-                <p:inputText id="firstname" value="#{validation.firstName}" required="true" label="Firstname">
+                <p:outputLabel for="first-name" value="Firstname:"/>
+                <p:inputText id="first-name" value="#{validation.firstName}" required="true" label="Firstname">
                     <f:validateLength minimum="2"/>
                 </p:inputText>
-                <p:message for="firstname" display="icon"/>
+                <p:message for="first-name" display="icon"/>
 
                 <p:outputLabel for="lastname" value="Lastname:"/>
                 <p:inputText id="lastname" value="#{validation.lastName}" label="Lastname" required="true">
                     <f:validateLength minimum="2"/>
-                    <p:ajax update="msgLastname" event="keyup"/>
+                    <p:ajax update="msgLast" event="keyup"/>
                 </p:inputText>
-                <p:message for="lastname" id="msgLastname" display="icon"/>
+                <p:message for="lastname" id="msgLast" display="icon"/>
 
             </h:panelGrid>
 
             <p:commandButton value="Save" update="@form" action="#{validation.save}" icon="pi pi-check" />
+            <p:messages id="message"/>
         </h:form>
     </div>
 

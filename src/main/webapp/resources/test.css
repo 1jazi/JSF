@@ -1,1 +1,9 @@
 /* Place any CSS here you want loaded in test.xhtml */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: aquamarine;
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}

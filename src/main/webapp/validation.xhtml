@@ -1,11 +1,74 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<style>
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: aquamarine;
+        transition: 0.3s;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+</style>
+
+
+<h:head>
+    <title>PrimeFaces Test</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
+
+
+    <div class="card">
+        <h:form>
+            <h:panelGrid columns="3" cellpadding="7" styleClass="mb-3">
+                <p:outputLabel for="first-name" value="First name:"/>
+                <p:inputText id="first-name" value="#{processView.firstName}" required="true" label="Firstname">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
+                <p:message for="first-name" display="icon"/>
+
+                <p:outputLabel for="lastname" value="Lastname:"/>
+                <p:inputText id="lastname" value="#{processView.lastName}" label="Lastname" required="true">
+                    <f:validateLength minimum="2"/>
+                    <p:ajax update="msgLast"
+                            listener="#{processView.handleEvent()}"
+                            process="@this"/> </p:inputText>
+                <p:message for="lastname" id="msgLast" display="icon"/>
+
+            </h:panelGrid>
+
+
+            <p:commandButton value="Save" update="@form" action="#{processView.save}" icon="pi pi-check"/>
+            <p:messages id="message"/>
+        </h:form>
+    </div>
+
+
+    <div class="card">
+        <h:form>
+            <p:messages id="messages" showDetail="true"/>
+
+            <p:inputText value="#{processView.lastName}" id="lastName" required="true">
+                <p:ajax update="uppercase" listener="#{processView.handleEvent()}" event="blur"/>
+            </p:inputText>
+
+            <h:outputText id="uppercase" value="#{processView.lastName}"/>
+        </h:form>
+    </div>
+
+
+
+
+</h:body>
 </html>

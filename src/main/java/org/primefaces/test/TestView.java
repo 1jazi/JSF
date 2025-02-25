@@ -17,7 +17,7 @@ import lombok.Data;
 @ViewScoped
 public class TestView implements Serializable {
 
-    private String string;
+    private String message;
     private Integer integer;
     private BigDecimal decimal;
     private LocalDateTime localDateTime;
@@ -25,7 +25,7 @@ public class TestView implements Serializable {
 
     @PostConstruct
     public void init() {
-        string = "Welcome to PrimeFaces!!!";
+        message = "Welcome to PrimeFaces!!!";
         list = new ArrayList<>(Arrays.asList(
                 new TestObject("Thriller", "Michael Jackson", 1982),
                 new TestObject("Back in Black", "AC/DC", 1980),

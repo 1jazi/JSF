@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<style>
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: aquamarine;
+        transition: 0.3s;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+</style>
+
+
+<h:head>
+    <title>PrimeFaces Test</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
+
+
+    <h:form>
+
+        <div class="card">
+            <p:dataTable var="product" value="#{dtBasic.products}">
+                <p:column headerText="Code">
+                    <h:outputText value="#{product.code}"/>
+                </p:column>
+
+                <p:column headerText="Name">
+                    <h:outputText value="#{product.name}"/>
+                </p:column>
+
+                <p:column headerText="Category">
+                    <h:outputText value="#{product.category}"/>
+                </p:column>
+
+                <p:column headerText="Quantity">
+                    <h:outputText value="#{product.quantity}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+
+    </h:form>
+
+
+</h:body>
+</html>

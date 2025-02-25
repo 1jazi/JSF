@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<style>
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: aquamarine;
+        transition: 0.3s;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+</style>
+
+
+<h:head>
+    <title>PrimeFaces Test</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
+
+
+    <div class="card">
+
+        <p:panel header="Observer">
+
+            <h:outputLabel for="name" value="name" styleClass="mr-2"/>
+
+
+
+
+        </p:panel>
+
+
+
+    </div>
+
+
+
+</h:body>
+</html>
