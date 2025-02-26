@@ -8,10 +8,12 @@ import jakarta.inject.Named;
 import lombok.Data;
 import org.primefaces.event.FlowEvent;
 
+import java.io.Serializable;
+
 @Named
 @Data
 @ViewScoped
-public class UserWizard {
+public class UserWizard implements Serializable {
 
 
     private User user = new User();

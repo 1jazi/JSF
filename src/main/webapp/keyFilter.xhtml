@@ -34,11 +34,18 @@
 
             <h4>Number</h4>
             <p:inputText>
-                <p:keyFilter mask="num"/>
+                <p:keyFilter mask="num" regEx=""/>
+            </p:inputText>
+
+            <h5>Regex</h5>
+            <p:inputText>
+                <p:keyFilter regEx="/[ABC]/i"/>
             </p:inputText>
 
         </h:form>
     </div>
+
+
 
 
 </h:body>
