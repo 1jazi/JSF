@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69fa577f-03c6-4d1a-ad73-3847a87685ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/test/UserWizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/test/UserWizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/accordionPanel.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/accordionPanel.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/inputText.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/inputText.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/keyFilter.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/keyFilter.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/test.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/test.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/test.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,9 +18,9 @@
       <list>
         <option value="CSS File" />
         <option value="Enum" />
-        <option value="jsf" />
         <option value="facelets" />
         <option value="Class" />
+        <option value="jsf" />
       </list>
     </option>
   </component>
@@ -101,7 +96,7 @@
       <workItem from="1740388221404" duration="12710000" />
       <workItem from="1740468171831" duration="2163000" />
       <workItem from="1740470410034" duration="16841000" />
-      <workItem from="1740546602865" duration="22750000" />
+      <workItem from="1740546602865" duration="25505000" />
     </task>
     <servers />
   </component>
